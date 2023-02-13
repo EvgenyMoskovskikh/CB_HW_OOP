@@ -11,7 +11,7 @@ public class TwoHW {
 
     public static void buyProducts(){
         String buy = ScannerHelper.getIntFromString("Введите название продукта, который хотите купить: ");
-        machine.getProduct(buy);
+        machine.buyProduct(buy);
     }
 
     public static void addProducts(){

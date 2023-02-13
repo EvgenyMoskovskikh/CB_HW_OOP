@@ -40,7 +40,7 @@ public class Machine {
         }
     }
 
-    public void getProduct(String name){
+    public void buyProduct(String name){
         if (products.isEmpty()){
             System.out.println("Автомат пустой");
             return;
