@@ -23,6 +23,40 @@ public class ScannerHelper {
         return number;
     }
 
+    public static double getIntFromDouble(String text) {
+        boolean ifInputError = true;
+        double number = 0;
+        System.out.print(text);
+        while (ifInputError) {
+            if (READER.hasNextDouble()) {
+                number = READER.nextDouble();
+                ifInputError = false;
+            }
+            else {
+                System.out.print("ОШИБКА! " + text);
+                READER.next();
+            }
+        }
+        return number;
+    }
+
+    public static String getIntFromString(String text) {
+        boolean ifInputError = true;
+        String str = "";
+        System.out.print(text);
+        while (ifInputError) {
+            if (READER.hasNext()) {
+                str = READER.next();
+                ifInputError = false;
+            }
+            else {
+                System.out.print("ОШИБКА! " + text);
+                READER.next();
+            }
+        }
+        return str;
+    }
+
     public static void close() {
         READER.close();
     }

@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.helper.ScannerHelper;
 import com.company.hw1.MenuHw1;
+import com.company.hw2.MenuHw2;
 
 public class Menu {
     private static final String SELECT_ACTION = "Выберите действие: ";
@@ -26,6 +27,8 @@ public class Menu {
                     MenuHw1.taskMenuSeminar1();
                     break;
                 case 2:
+                    MenuHw2.taskMenuSeminar2();
+                    break;
                 case 3:
                 case 4:
                 case 5:
