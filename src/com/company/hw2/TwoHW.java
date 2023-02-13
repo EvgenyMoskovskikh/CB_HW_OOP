@@ -16,7 +16,7 @@ public class TwoHW {
 
     public static void addProducts(){
         String addProduct = ScannerHelper.getIntFromString("Какую категорию товара нужно добавить? " +
-                "\n\t1 - шоколад,\n\t2 - вода,\n\t3 - печенье");
+                "\n\t1 - шоколад,\n\t2 - вода,\n\t3 - печенье\n");
         if(addProduct.equals("1") || addProduct.equals("шоколад")) {
             String name = ScannerHelper.getIntFromString("Введите название шоколада: ");
             double price = ScannerHelper.getIntFromDouble("Введите стоимость шоколада: ");
