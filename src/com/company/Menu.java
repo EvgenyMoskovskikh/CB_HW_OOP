@@ -2,7 +2,6 @@ package com.company;
 
 import com.company.helper.ScannerHelper;
 import com.company.hw1.MenuHw1;
-import com.company.hw1.OneHW;
 
 public class Menu {
     private static final String SELECT_ACTION = "Выберите действие: ";

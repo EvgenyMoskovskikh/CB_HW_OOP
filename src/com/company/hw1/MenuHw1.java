@@ -7,7 +7,7 @@ public class MenuHw1 {
     private static final String TASK_MENU = "\nВыберите нужный пункт меню: "
             + "\n\t1 - Посмотреть весь автопарк"
             + "\n\t2 - Посмотреть гонку"
-            + "\n\t3 - Проследить за машинами"
+            + "\n\t3 - Передвижение грузовых машин"
             + "\n\t5 - Вернуться назад, в главное меню"
             + "\n\t0 - Выход";
 
@@ -23,7 +23,7 @@ public class MenuHw1 {
                     System.out.println(OneHW.race());
                     break;
                 case 3:
-                    OneHW.carLife();
+                    OneHW.movingTrucks();
                     break;
                 case 5:
                     Menu.startMenu();

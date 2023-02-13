@@ -8,26 +8,31 @@ import java.util.Collections;
 public class OneHW {
 
     public static void viewAllCars(){
-        ArrayList<Car> cars = initialCars();
-        for (int i = 0; i < cars.size(); i++) {
-            cars.get(i).getInfo();
+        ArrayList<RacingCar> racingCars = initialRacingCars();
+        System.out.println("Наш автопарк гоночных машин: ");
+        for (int i = 0; i < racingCars.size(); i++) {
+            racingCars.get(i).getInfo();
+        }
+        ArrayList<Truck> trucks = initialTruck();
+        System.out.println("\nНаш автопарк грузовых машин: ");
+        for (int i = 0; i < trucks.size(); i++) {
+            trucks.get(i).getInfo();
         }
     }
 
-    public static void carLife() {
-        ArrayList<Car> cars = initialCars();
-        cars.get(0).starCar();
-        cars.get(0).road("Москва");
-        cars.get(7).carWash();
-        cars.get(5).carWash();
-        cars.get(5).road("Питер");
-        cars.get(3).starCar();
-        cars.get(3).road("Питер");
-        cars.get(2).starCar();
+    public static void movingTrucks() {
+        ArrayList<Truck> trucks = initialTruck();
+        trucks.get(0).starCar();
+        trucks.get(0).road("Москва");
+        trucks.get(2).carWash();
+        trucks.get(1).road("Питер");
+        trucks.get(2).starCar();
+        trucks.get(2).road("Питер");
+        trucks.get(3).starCar();
     }
 
     public static String race() {
-        ArrayList<Car> cars = initialCars();
+        ArrayList<RacingCar> cars = initialRacingCars();
         try {
             int minTracks = 200;
             int maxTracks = 2000;
@@ -64,18 +69,28 @@ public class OneHW {
     }
 
 
-    private static ArrayList<Car> initialCars() {
-        ArrayList<Car> cars = new ArrayList<>();
-        Car bmv = new Car("BMV", 2022, 6000000, "black", 2.4, 3, "седан");
-        Car toyota = new Car("Toyota", 2020, 3000000, "white", 1.6, 3, "седан");
-        Car mercedes = new Car("Mercedes", 2021, 5600000, "black", 2.4, 5, "седан");
-        Car lada = new Car("Lada", 2020, 1500000, "white", 1.4, 5, "хэтчбэк");
-        Car audi = new Car("Audi", 2021, 6500000, "white", 2.8, 3, "кабриолет");
-        Car nissan = new Car("Nissan", 2020, 7000000, "white", 2.4, 3, "кабриолет");
-        Car lotus = new Car("Lotus", 2020, 8000000, "red", 2.8, 3, "кабриолет");
-        Car hyundai = new Car("Hyundai", 20220, 1500000, "yellow", 2.4, 5, "хэтчбэк");
+    private static ArrayList<RacingCar> initialRacingCars() {
+        ArrayList<RacingCar> cars = new ArrayList<>();
+        RacingCar bmv = new RacingCar("BMV", 2022, 6000000, "black", 2.4, 3, "седан");
+        RacingCar toyota = new RacingCar("Toyota", 2020, 3000000, "white", 1.6, 3, "седан");
+        RacingCar mercedes = new RacingCar("Mercedes", 2021, 5600000, "black", 2.4, 5, "седан");
+        RacingCar lada = new RacingCar("Lada", 2020, 1500000, "white", 1.4, 5, "хэтчбэк");
+        RacingCar audi = new RacingCar("Audi", 2021, 6500000, "white", 2.8, 3, "кабриолет");
+        RacingCar nissan = new RacingCar("Nissan", 2020, 7000000, "white", 2.4, 3, "кабриолет");
+        RacingCar lotus = new RacingCar("Lotus", 2020, 8000000, "red", 2.8, 3, "кабриолет");
+        RacingCar hyundai = new RacingCar("Hyundai", 20220, 1500000, "yellow", 2.4, 5, "хэтчбэк");
         Collections.addAll(cars, bmv, toyota, mercedes, lada, audi, nissan, lotus, hyundai);
         return cars;
+    }
+
+    private static ArrayList<Truck> initialTruck() {
+        ArrayList<Truck> trucks = new ArrayList<>();
+        Truck sollers = new Truck("Развозной Sollers: Arg", 2022, 8000000, "white", 2.0,980);
+        Truck kamazSed = new Truck("Седельный тягач КамАЗ-54901", 2021, 6000000, "white", 2.0,1780);
+        Truck kamazBort = new Truck("Бортовой КамАЗ-65207", 2017, 7000000, "white", 2.4,1980);
+        Truck gazPickUp = new Truck("Мега-пикап ГАЗ Вепрь-Next", 2022, 8500000, "white", 2.1,580);
+        Collections.addAll(trucks, sollers, kamazSed, kamazBort,gazPickUp);
+        return trucks;
     }
 
 
