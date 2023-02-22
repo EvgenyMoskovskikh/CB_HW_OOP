@@ -4,6 +4,7 @@ import com.company.helper.ScannerHelper;
 import com.company.hw1.MenuHw1;
 import com.company.hw2.MenuHw2;
 import com.company.hw3.MenuHW3;
+import com.company.hw4.MenuHW4;
 
 public class Menu {
     private static final String SELECT_ACTION = "Выберите действие: ";
@@ -34,6 +35,8 @@ public class Menu {
                     MenuHW3.taskMenuSeminar3();
                     break;
                 case 4:
+                    MenuHW4.taskMenuSeminar4();
+                    break;
                 case 5:
                 case 6:
                 case 7:
