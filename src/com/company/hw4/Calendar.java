@@ -1,6 +1,7 @@
 package com.company.hw4;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Calendar implements Serializable {
@@ -61,6 +62,18 @@ public class Calendar implements Serializable {
 
     public void changeTextTask(Task task, String text){
         task.setText(text);
+    }
+
+    public void changePriority(Task task, Priority priority){
+        task.setPriority(priority);
+    }
+
+    public void changeDateStart(Task task, LocalDateTime dateTime){
+        task.setDateStart(dateTime);
+    }
+
+    public void changeDateEnd(Task task, LocalDateTime dateTime){
+        task.setDateEnd(dateTime);
     }
 
     public void changeStatus(Task task) {

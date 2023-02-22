@@ -105,6 +105,11 @@ public class FourHW {
         changeTopic(num - 1, calendar, topic);
         String text = ScannerHelper.getIntFromString("Введите новый текст задачи: ");
         changeText(num - 1, calendar, text);
+        System.out.println("Измените приоритет: ");
+        changePriority(num - 1, calendar);
+        System.out.println("Измените дату: ");
+        changeDateStart(num - 1, calendar);
+        changeDateEnd(num - 1, calendar);
         SaveToFile.saveToFile(calendar, path);
         showAllTasks();
     }
@@ -115,6 +120,18 @@ public class FourHW {
 
     private static void changeText(int num, Calendar calendar, String text) {
         calendar.changeTextTask(calendar.getTasks().get(num), text);
+    }
+
+    private static void changePriority(int num, Calendar calendar){
+        calendar.changePriority(calendar.getTasks().get(num), changePriority());
+    }
+
+    private static void changeDateStart(int num, Calendar calendar){
+        calendar.changeDateStart(calendar.getTasks().get(num), createDate("Выберите новую дату начала: "));
+    }
+
+    private static void changeDateEnd(int num, Calendar calendar){
+        calendar.changeDateEnd(calendar.getTasks().get(num), createDate("Выберите новую дату завершения: "));
     }
 
     private static LocalDateTime createDate(String str) {
