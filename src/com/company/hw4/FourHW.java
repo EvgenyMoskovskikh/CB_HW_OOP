@@ -7,9 +7,10 @@ import java.time.format.DateTimeFormatter;
 
 public class FourHW {
     private static final String path = "src/com/company/hw4/Tasks.txt";
+    private static final String pathWork = "src/com/company/hw4/WorkTasks.txt";
 
     public static void startInitTask() {               //необходим при первом запуске программы!!!!Если нет файла
-        Calendar calendar = new Calendar();
+        Calendar<Task> calendar = new Calendar();
         User user = new User("Вася");
 
         calendar.addTask(new Task("Лекция 1 ООП", user, "первая лекция по ООП", Priority.important,
@@ -27,12 +28,22 @@ public class FourHW {
 
     public static void showAllTasks() {
 //        startInitTask();                            //необходим при первом запуске программы!!!!Если нет файла
-        Calendar calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
         calendar.showAllTask();
     }
 
+    public static void showOutstandingTask() {
+        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
+        calendar.showOutsideTask();
+    }
+
+    public static void showCompletedTTask() {
+        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
+        calendar.showCompletedTasks();
+    }
+
     public static void changeStatusTask() {
-        Calendar calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
         calendar.showOutsideTask();
         int num = ScannerHelper.getIntFromInput("Выберите задачу, которую выполнили: ");
         calendar.changeStatus(calendar.getTasks().get(num - 1));
@@ -40,18 +51,8 @@ public class FourHW {
         System.out.println("Задача \"" + calendar.getTasks().get(num - 1).getTopic() + "\" выполнена!");
     }
 
-    public static void showOutstandingTask() {
-        Calendar calendar = ReadFromFile.initializeFromFile(path);
-        calendar.showOutsideTask();
-    }
-
-    public static void showCompletedTTask() {
-        Calendar calendar = ReadFromFile.initializeFromFile(path);
-        calendar.showCompletedTasks();
-    }
-
     public static void addNewTask() {
-        Calendar calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
         Priority priority = changePriority();
         User user = new User("Вася");
         String topic = ScannerHelper.getIntFromString("Введите название задачи: ");
@@ -89,7 +90,7 @@ public class FourHW {
     }
 
     public static void deleteTask() {
-        Calendar calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
         showAllTasks();
         int num = ScannerHelper.getIntFromInput("Введите номер задачи, которую нужно удалить: ");
         calendar.deleteTask(calendar.getTasks().get(num - 1));
@@ -98,7 +99,7 @@ public class FourHW {
     }
 
     public static void changeTask() {
-        Calendar calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
         showAllTasks();
         int num = ScannerHelper.getIntFromInput("Выберите задачу, которую нужно изменить: ");
         String topic = ScannerHelper.getIntFromString("Введите новое название задачи: ");
@@ -114,23 +115,23 @@ public class FourHW {
         showAllTasks();
     }
 
-    private static void changeTopic(int num, Calendar calendar, String topic) {
+    private static void changeTopic(int num, Calendar<Task> calendar, String topic) {
         calendar.changeTopicTask(calendar.getTasks().get(num), topic);
     }
 
-    private static void changeText(int num, Calendar calendar, String text) {
+    private static void changeText(int num, Calendar<Task> calendar, String text) {
         calendar.changeTextTask(calendar.getTasks().get(num), text);
     }
 
-    private static void changePriority(int num, Calendar calendar){
+    private static void changePriority(int num, Calendar<Task> calendar) {
         calendar.changePriority(calendar.getTasks().get(num), changePriority());
     }
 
-    private static void changeDateStart(int num, Calendar calendar){
+    private static void changeDateStart(int num, Calendar<Task> calendar) {
         calendar.changeDateStart(calendar.getTasks().get(num), createDate("Выберите новую дату начала: "));
     }
 
-    private static void changeDateEnd(int num, Calendar calendar){
+    private static void changeDateEnd(int num, Calendar<Task> calendar) {
         calendar.changeDateEnd(calendar.getTasks().get(num), createDate("Выберите новую дату завершения: "));
     }
 

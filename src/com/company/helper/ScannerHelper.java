@@ -66,9 +66,4 @@ public class ScannerHelper {
         return num;
     }
 
-    public static boolean isYes(String text) {
-        System.out.print(text);
-        String answer = READER.next().toLowerCase().trim().replaceAll("\\p{P}", "");
-        return "y".equals(answer) || "yes".equals(answer) || "да".equals(answer);
-    }
 }

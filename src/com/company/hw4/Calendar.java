@@ -4,25 +4,22 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Calendar implements Serializable {
+public class Calendar<T extends Task> implements Serializable {
     private static final long serialVersionUID = 1L;
-    private ArrayList<Task> tasks;
+
+    private ArrayList<T> tasks;
 
     public Calendar() {
         this.tasks = new ArrayList<>();
     }
 
-    public ArrayList<Task> getTasks() {
+    public ArrayList<T> getTasks() {
         return tasks;
-    }
-
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
     }
 
     public void showAllTask() {
         int i = 1;
-        for (Task task : tasks) {
+        for (T task : tasks) {
             System.out.println("\n\t№ " + i + " " + task);
             i++;
         }
@@ -30,7 +27,7 @@ public class Calendar implements Serializable {
 
     public void showOutsideTask() {
         int i = 1;
-        for (Task task : tasks) {
+        for (T task : tasks) {
             if (!task.isStatus()) {
                 System.out.println("\n\t№ " + i + " " + task);
                 i++;
@@ -40,7 +37,7 @@ public class Calendar implements Serializable {
 
     public void showCompletedTasks(){
         int i = 1;
-        for (Task task : tasks) {
+        for (T task : tasks) {
             if (task.isStatus()) {
                 System.out.println("\n\t№ " + i + " " + task);
                 i++;
@@ -48,35 +45,35 @@ public class Calendar implements Serializable {
         }
     }
 
-    public void addTask(Task task) {
+    public void addTask(T task) {
         this.tasks.add(task);
     }
 
-    public void deleteTask(Task task){
+    public void deleteTask(T task){
         this.tasks.remove(task);
     }
 
-    public void changeTopicTask(Task task, String topic){
+    public void changeTopicTask(T task, String topic){
         task.setTopic(topic);
     }
 
-    public void changeTextTask(Task task, String text){
+    public void changeTextTask(T task, String text){
         task.setText(text);
     }
 
-    public void changePriority(Task task, Priority priority){
+    public void changePriority(T task, Priority priority){
         task.setPriority(priority);
     }
 
-    public void changeDateStart(Task task, LocalDateTime dateTime){
+    public void changeDateStart(T task, LocalDateTime dateTime){
         task.setDateStart(dateTime);
     }
 
-    public void changeDateEnd(Task task, LocalDateTime dateTime){
+    public void changeDateEnd(T task, LocalDateTime dateTime){
         task.setDateEnd(dateTime);
     }
 
-    public void changeStatus(Task task) {
+    public void changeStatus(T task) {
         if (task.isStatus()) {
             System.out.println("Задача уже выполнена");
         } else {

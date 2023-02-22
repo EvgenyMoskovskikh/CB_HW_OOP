@@ -33,18 +33,6 @@ public class Task implements Serializable {
         this.topic = topic;
     }
 
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public String getText() {
-        return text;
-    }
-
     public void setText(String text) {
         this.text = text;
     }
@@ -91,11 +79,12 @@ public class Task implements Serializable {
     @Override
     public String toString() {
         return  "\n\tТема: " + topic +
-                "\n\t" + author +
+                "\n\tАвтор: " + author +
                 "\n\tЗадача: " + text +
                 "\n\tПриоритет: " + priority +
                 "\n\tДата начала: " + dateStart +
                 "\n\tДата завершения: " + dateEnd +
                 "\n\tСтатус: " + statusName();
     }
+
 }
