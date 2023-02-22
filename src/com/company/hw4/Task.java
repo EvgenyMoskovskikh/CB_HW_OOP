@@ -12,17 +12,15 @@ public class Task implements Serializable {
     private Priority priority;
     private LocalDateTime dateStart;
     private LocalDateTime dateEnd;
-    private LocalDateTime deadline;
     private boolean status;
 
-    public Task(String topic, User author, String text, Priority priority, LocalDateTime dateStart, LocalDateTime dateEnd, LocalDateTime deadline) {
+    public Task(String topic, User author, String text, Priority priority, LocalDateTime dateStart, LocalDateTime dateEnd) {
         this.topic = topic;
         this.author = author;
         this.text = text;
         this.priority = priority;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
-        this.deadline = deadline;
         this.status = false;
 
     }
@@ -75,14 +73,6 @@ public class Task implements Serializable {
         this.dateEnd = dateEnd;
     }
 
-    public LocalDateTime getDeadline() {
-        return deadline;
-    }
-
-    public void setDeadline(LocalDateTime deadline) {
-        this.deadline = deadline;
-    }
-
     public boolean isStatus() {
         return status;
     }
@@ -91,7 +81,7 @@ public class Task implements Serializable {
         this.status = status;
     }
 
-    private String statusName(){
+    public String statusName(){
         if(this.status){
             return "выполнено";
         }
@@ -106,7 +96,6 @@ public class Task implements Serializable {
                 "\n\tПриоритет: " + priority +
                 "\n\tДата начала: " + dateStart +
                 "\n\tДата завершения: " + dateEnd +
-                "\n\tДэдлайн: " + deadline +
                 "\n\tСтатус: " + statusName();
     }
 }

@@ -14,16 +14,13 @@ public class FourHW {
 
         calendar.addTask(new Task("Лекция 1 ООП", user, "первая лекция по ООП", Priority.important,
                 LocalDateTime.of(2022, 2, 15, 18, 0),
-                LocalDateTime.of(2022, 2, 15, 20, 0),
-                LocalDateTime.of(2022, 2, 15, 19, 30)));
+                LocalDateTime.of(2022, 2, 15, 20, 0)));
         calendar.addTask(new Task("Семинар 1 ООП", user, "первый семинар по ООП", Priority.basic,
                 LocalDateTime.of(2022, 2, 20, 14, 0),
-                LocalDateTime.of(2022, 2, 20, 18, 0),
-                LocalDateTime.of(2022, 2, 20, 17, 30)));
+                LocalDateTime.of(2022, 2, 20, 18, 0)));
         calendar.addTask(new Task("ДЗ", user, "сделать домашку", Priority.ordinary,
                 LocalDateTime.of(2022, 2, 24, 18, 0),
-                LocalDateTime.of(2022, 2, 24, 20, 0),
-                LocalDateTime.of(2022, 2, 24, 19, 30)));
+                LocalDateTime.of(2022, 2, 24, 20, 0)));
 
         SaveToFile.saveToFile(calendar, path);
     }
@@ -65,21 +62,15 @@ public class FourHW {
             System.out.println("Извините, но дата завершения задачи, должна быть не раньше даты начала!!!\nЗадача не добавлена!!!");
             MenuHW4.taskMenuSeminar4();
         } else {
-            LocalDateTime deadline = createDate("Дэдлайн:");
-            if (deadline.isAfter(start) && deadline.isBefore(end)) {
-                for (int i = 0; i < calendar.getTasks().size(); i++) {
-                        if (calendar.getTasks().get(i).getDateStart().isBefore(start)
-                                && calendar.getTasks().get(i).getDateEnd().isAfter(start) && !calendar.getTasks().get(i).isStatus()) {
-                        System.out.println("\tВНИМАНИЕ!!!В этот период уже есть задача: " + calendar.getTasks().get(i).getTopic() +
-                                "\n\tС приоритетом: " + calendar.getTasks().get(i).getPriority());
-                    }
+            for (int i = 0; i < calendar.getTasks().size(); i++) {
+                if (calendar.getTasks().get(i).getDateStart().isBefore(start)
+                        && calendar.getTasks().get(i).getDateEnd().isAfter(start) && !calendar.getTasks().get(i).isStatus()) {
+                    System.out.println("\tВНИМАНИЕ!!!В этот период уже есть задача: " + calendar.getTasks().get(i).getTopic() +
+                            "\n\tС приоритетом: " + calendar.getTasks().get(i).getPriority());
                 }
-                calendar.addTask(new Task(topic, user, text, priority, start, end, deadline));
-                SaveToFile.saveToFile(calendar, path);
-            } else {
-                System.out.println("Дедлайн должен быть между датой начала и датой завершения задачи!!!\nЗадача не добавлена!!!");
-                MenuHW4.taskMenuSeminar4();
             }
+            calendar.addTask(new Task(topic, user, text, priority, start, end));
+            SaveToFile.saveToFile(calendar, path);
         }
     }
 
