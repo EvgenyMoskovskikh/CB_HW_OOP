@@ -3,7 +3,7 @@ package com.company.hw4;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Task implements Serializable {
+public class Task implements Serializable, Comparable<Task> {
     private static final long serialVersionUID = 1L;
 
     private String topic;
@@ -87,4 +87,8 @@ public class Task implements Serializable {
                 "\n\tСтатус: " + statusName();
     }
 
+    @Override
+    public int compareTo(Task o) {
+        return priority.compareTo(o.priority);
+    }
 }

@@ -3,6 +3,7 @@ package com.company.hw4;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Calendar<T extends Task> implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -43,6 +44,10 @@ public class Calendar<T extends Task> implements Serializable {
                 i++;
             }
         }
+    }
+
+    public void sortTask(){
+        Collections.sort(tasks);
     }
 
     public void addTask(T task) {

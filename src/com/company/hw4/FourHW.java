@@ -28,17 +28,17 @@ public class FourHW {
 
     public static void showAllTasks() {
 //        startInitTask();                            //необходим при первом запуске программы!!!!Если нет файла
-        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
         calendar.showAllTask();
     }
 
     public static void showOutstandingTask() {
-        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
         calendar.showOutsideTask();
     }
 
     public static void showCompletedTTask() {
-        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
         calendar.showCompletedTasks();
     }
 
@@ -52,7 +52,7 @@ public class FourHW {
     }
 
     public static void addNewTask() {
-        Calendar<Task>  calendar = ReadFromFile.initializeFromFile(path);
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
         Priority priority = changePriority();
         User user = new User("Вася");
         String topic = ScannerHelper.getIntFromString("Введите название задачи: ");
@@ -73,20 +73,6 @@ public class FourHW {
             calendar.addTask(new Task(topic, user, text, priority, start, end));
             SaveToFile.saveToFile(calendar, path);
         }
-    }
-
-    private static Priority changePriority() {
-        int num = ScannerHelper.getIntFromInput("Выберите приоритет: \n\t1 - Важный\n\t2 - Основной\n\t3 - Обычный\n");
-        if (num == 1) {
-            return Priority.important;
-        } else if (num == 2) {
-            return Priority.basic;
-        } else if (num == 3) {
-            return Priority.ordinary;
-        } else {
-            System.out.println("Нет такого приоритета!!!");
-        }
-        return Priority.ordinary;
     }
 
     public static void deleteTask() {
@@ -113,6 +99,26 @@ public class FourHW {
         changeDateEnd(num - 1, calendar);
         SaveToFile.saveToFile(calendar, path);
         showAllTasks();
+    }
+
+    public static void sortTasks() {
+        Calendar<Task> calendar = ReadFromFile.initializeFromFile(path);
+        calendar.sortTask();
+        calendar.showOutsideTask();
+    }
+
+    private static Priority changePriority() {
+        int num = ScannerHelper.getIntFromInput("Выберите приоритет: \n\t1 - Важный\n\t2 - Основной\n\t3 - Обычный\n");
+        if (num == 1) {
+            return Priority.important;
+        } else if (num == 2) {
+            return Priority.basic;
+        } else if (num == 3) {
+            return Priority.ordinary;
+        } else {
+            System.out.println("Нет такого приоритета!!!");
+        }
+        return Priority.ordinary;
     }
 
     private static void changeTopic(int num, Calendar<Task> calendar, String topic) {

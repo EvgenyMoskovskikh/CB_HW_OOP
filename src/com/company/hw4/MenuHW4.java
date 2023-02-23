@@ -12,6 +12,7 @@ public class MenuHW4 {
             + "\n\t5 - Создать задачу"
             + "\n\t6 - Изменить задачу"
             + "\n\t7 - Удалить задачу"
+            + "\n\t8 - Отсортировать по приоритету"
             + "\n\t9 - Вернуться назад, в главное меню"
             + "\n\t0 - Выход";
 
@@ -40,6 +41,9 @@ public class MenuHW4 {
                     break;
                 case 7:
                     FourHW.deleteTask();
+                    break;
+                case 8:
+                    FourHW.sortTasks();
                     break;
                 case 9:
                     Menu.startMenu();
