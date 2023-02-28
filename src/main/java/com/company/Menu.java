@@ -6,6 +6,7 @@ import com.company.hw2.MenuHw2;
 import com.company.hw3.MenuHW3;
 import com.company.hw4.MenuHW4;
 import com.company.hw5.ServerApp;
+import com.company.hw6.MenuHw6;
 
 public class Menu {
     private static final String SELECT_ACTION = "Выберите действие: ";
@@ -42,6 +43,8 @@ public class Menu {
                     System.out.println("***Запустите ServerApp и ClientApp в hw5***");
                     break;
                 case 6:
+                    MenuHw6.startApp();
+                    break;
                 case 7:
                     System.out.println("Находится в разработке!");
                 case 0:
