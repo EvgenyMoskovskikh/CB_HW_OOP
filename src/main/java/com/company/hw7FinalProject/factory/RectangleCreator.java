@@ -5,7 +5,7 @@ import com.company.hw7FinalProject.figure.Figure;
 import com.company.hw7FinalProject.figure.Rectangle;
 
 import java.util.ArrayList;
-public class RectangleCreator extends FigureCreator {
+public class RectangleCreator implements FigureCreator {
 
     @Override
     public Figure create (ArrayList<Point> points) {

@@ -5,7 +5,7 @@ import com.company.hw7FinalProject.figure.Figure;
 
 import java.util.ArrayList;
 
-public class CircleCreator extends FigureCreator {
+public class CircleCreator implements FigureCreator {
 
     @Override
     public Figure create(ArrayList<Point> points) {

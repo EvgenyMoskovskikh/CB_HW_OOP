@@ -6,7 +6,7 @@ import com.company.hw7FinalProject.figure.Polygon;
 
 import java.util.ArrayList;
 
-public class PolygonCreator extends FigureCreator {
+public class PolygonCreator implements FigureCreator {
 
     @Override
     public Figure create (ArrayList<Point> points) {

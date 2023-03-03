@@ -6,7 +6,7 @@ import com.company.hw7FinalProject.figure.Triangle;
 
 import java.util.ArrayList;
 
-public class TriangleCreator extends FigureCreator {
+public class TriangleCreator implements FigureCreator {
 
     @Override
     public Figure create (ArrayList<Point> points) {
