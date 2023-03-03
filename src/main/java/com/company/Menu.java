@@ -5,8 +5,8 @@ import com.company.hw1.MenuHw1;
 import com.company.hw2.MenuHw2;
 import com.company.hw3.MenuHW3;
 import com.company.hw4.MenuHW4;
-import com.company.hw5.ServerApp;
 import com.company.hw6.MenuHw6;
+import com.company.hw7FinalProject.StartShape;
 
 public class Menu {
     private static final String SELECT_ACTION = "Выберите действие: ";
@@ -18,7 +18,7 @@ public class Menu {
             + "\n\t4 - Урок 4 ООП: Обобщения. ч1"
             + "\n\t5 - Урок 5 От простого к практике"
             + "\n\t6 - Урок 6 ООП Дизайн и Solid"
-            + "\n\t6 - Урок 7 ООП Дизайн и Solid ч.2"
+            + "\n\t7 - Урок 7 ООП Дизайн и Solid ч.2"
             + "\n\t0 - Выход";
 
 
@@ -46,7 +46,8 @@ public class Menu {
                     MenuHw6.startApp();
                     break;
                 case 7:
-                    System.out.println("Находится в разработке!");
+                    StartShape.startApp();
+                    break;
                 case 0:
                     System.exit(0);
                 default:

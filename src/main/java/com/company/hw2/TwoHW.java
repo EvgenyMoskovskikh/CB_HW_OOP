@@ -19,18 +19,18 @@ public class TwoHW {
                 "\n\t1 - шоколад,\n\t2 - вода,\n\t3 - печенье\n");
         if(addProduct.equals("1") || addProduct.equals("шоколад")) {
             String name = ScannerHelper.getIntFromString("Введите название шоколада: ");
-            double price = ScannerHelper.getIntFromDouble("Введите стоимость шоколада: ");
+            double price = ScannerHelper.getDoubleFromInput("Введите стоимость шоколада: ");
             machine.addProduct(name, price);
         }
         else if (addProduct.equals("2") || addProduct.equals("вода")){
             String name = ScannerHelper.getIntFromString("Введите название воды: ");
-            double price = ScannerHelper.getIntFromDouble("Введите стоимость воды: ");
+            double price = ScannerHelper.getDoubleFromInput("Введите стоимость воды: ");
             String soda = ScannerHelper.getIntFromString("Введите вода с газом или нет: ");
             machine.addProduct(name, price, soda);
         }
         else if(addProduct.equals("3") || addProduct.equals("печенье")){
             String name = ScannerHelper.getIntFromString("Введите название печенья: ");
-            double price = ScannerHelper.getIntFromDouble("Введите стоимость печенья: ");
+            double price = ScannerHelper.getDoubleFromInput("Введите стоимость печенья: ");
             String filling = ScannerHelper.getIntFromString("С какой начинкой печенье: ");
             String type = ScannerHelper.getIntFromString("Введите тип печенья: ");
             machine.addProduct(name, price, filling, type);
